@@ -1,0 +1,66 @@
+# Arquivos de compilação e binários
+*.exe
+*.out
+*.o
+*.a
+*.so
+*.dll
+
+# Diretórios de compilação
+/build/
+bin/
+obj/
+
+# Arquivos de depuração
+*.dSYM/
+*.dmp
+*.stackdump
+
+# Makefile e CMake output
+Makefile
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Logs
+*.log
+
+# IDEs e editores
+# CLion
+.idea/
+*.iml
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Eclipse
+.cproject
+.project
+.settings/
+
+# Visual Studio
+.vs/
+*.vcxproj*
+*.sln
+ipch/
+*.db
+*.opendb
+*.VC.db
+*.VC.opendb
+
+# Code::Blocks
+*.layout
+*.depend
+*.cbp
+*.workspace
+
+# Arquivos de backup temporários de editores
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Bibliotecas externas (se estiverem em libs)
+libs/
