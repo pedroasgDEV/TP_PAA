@@ -6,29 +6,28 @@
 
 using namespace std;
 
-using Clause = vector<int>;
-
 class SAT{
     private:
         int varsNum;
-        vector<Clause> clauses;
+        vector<vector<int>> clauses;
 
     public:
         vector<bool> vars;
 
         //GETERS
         int getVarsNum();
-        vector<Clause> getClauses();
+        vector<vector<int>> getClauses();
 
         //SETERS
         void setVarsNum(int varsNum);
-        void setClauses(vector<Clause> clauses);
+        void setClauses(vector<vector<int>> clauses);
 
         //METHODS
         bool checkVars();
 
         //OPERATORS OVERLOAD
         friend istream& operator>>(istream& in, SAT& c);
+        friend ostream& operator<<(ostream& out, SAT& c);
 };
 
 #endif

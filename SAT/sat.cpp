@@ -2,11 +2,11 @@
 
 //GETERS
 int SAT::getVarsNum(){ return varsNum; }
-vector<Clause> SAT::getClauses(){ return clauses; }
+vector<vector<int>> SAT::getClauses(){ return clauses; }
 
 //SETERS
 void SAT::setVarsNum(int varsNum){ this->varsNum = varsNum; }
-void SAT::setClauses(vector<Clause> clauses){ this->clauses = clauses; }
+void SAT::setClauses(vector<vector<int>> clauses){ this->clauses = clauses; }
 
 //METHODS
 bool SAT::checkVars(){
@@ -33,16 +33,15 @@ bool SAT::checkVars(){
 
 //OPERATORS OVERLOAD
 istream& operator>>(istream& in, SAT& a){
-
     //Pega o numero de variaveis
     in >> a.varsNum;
 
     //Se assume inicialmente todas as variaveis como falsas
-    for (int i = 0; i < a.varsNum; i++) a.vars.push_back(false);
+    a.vars = vector<bool> (a.varsNum, false);
 
     //Armazena todas as as clausuras enquanto houver entrada
     while (in){
-        Clause temp;
+        vector<int> temp(a.varsNum);
 
         //Armazena todas as variaveis presentes nas clausuras
         for(int i = 0; i < a.varsNum; i++) in >> temp[i];
