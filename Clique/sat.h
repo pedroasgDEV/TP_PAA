@@ -15,15 +15,13 @@ class SAT{
 
     public:
         vector<bool> vars;
-        
+
         //GETERS
         int getVarsNum();
-        vector<bool> getVars();
         vector<Clause> getClauses();
 
         //SETERS
         void setVarsNum(int varsNum);
-        void setVars(vector<bool> vars);
         void setClauses(vector<Clause> clauses);
 
         //METHODS
