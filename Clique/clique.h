@@ -14,6 +14,7 @@ class Clique{
 
     public:
         vector<int> maxClique;
+        vector<int> currClique;
 
         //GETERS
         int getNumVertices();
