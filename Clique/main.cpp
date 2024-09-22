@@ -48,7 +48,7 @@ int main() {
 
     auto inicio = chrono::high_resolution_clock::now();
 
-    // Conjunto inicial de todos os vértices
+    //Conjunto inicial de todos os vértices
     set<int> candidates;
     for (int i = 0; i < clique.getNumVertices(); ++i) {
         candidates.insert(i);

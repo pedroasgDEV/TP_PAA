@@ -8,6 +8,7 @@ vector<vector<int>> Clique::getArestas(){ return arestas; }
 void Clique::setNumVertices(int numVertices){ this->numVertices = numVertices; }
 void Clique::setArestas(vector<vector<int>> arestas){ this->arestas = arestas; }
 
+//METHODS
 bool Clique::isClique(const vector<int> clique){
     for (size_t i = 0; i < clique.size(); ++i)
         for (size_t j = i + 1; j < clique.size(); ++j)
