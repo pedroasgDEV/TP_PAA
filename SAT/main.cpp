@@ -1,25 +1,34 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
+#include <algorithm>
 
 #include "sat.h"
 
 using namespace std;
 
-bool backtracking(SAT& sat, vector<bool>::iterator varPosition){
+bool backtracking(SAT& sat, int position){
     //Verifica se a formula foi satisfeita
-    if(varPosition == sat.vars.end())
-        return sat.checkVars();
+    if(position == sat.getVarsNum()) //Se declarou todas as variaveis
+        return true;
 
     //Atribui falso a variavel atual
-    sat.vars.insert(varPosition, false);
-    if(backtracking(sat, ++varPosition))
-        return true;
+    sat.vars.push_back(false);
+
+    //Testa as variaveis já atribuidas
+    if(sat.checkVars())
+        if(backtracking(sat, position + 1)) return true;
     
+    sat.vars.pop_back(); //remove o valor que foi atribuido
+
     //Atribui verdadeiro a variavel atual
-    sat.vars.insert(varPosition, true);
-    if(backtracking(sat, ++varPosition))
-        return true;
+    sat.vars.push_back(true);
+
+    //Testa as variaveis já atribuidas
+    if(sat.checkVars())
+        if(backtracking(sat, position + 1)) return true;
+    
+    sat.vars.pop_back(); //remove o valor que foi atribuido
 
     //Nenhuma atribuição levou a solução
     return false;
@@ -31,12 +40,9 @@ int main(){
 
     auto inicio = chrono::high_resolution_clock::now();
 
-    if(backtracking(sat, sat.vars.begin())){
+    if(backtracking(sat, 0)){
         cout << "A fórmula é satisfeita.\n";
-        cout << "[ ";
-        for(bool var : sat.vars)
-            cout << var ? "True ":"False ";
-        cout << "]\n";  
+        cout << sat;
     }
     else{
         cout << "A fórmula não pode ser satisfeita.\n";

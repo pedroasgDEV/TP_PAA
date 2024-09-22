@@ -6,21 +6,23 @@
 
 using namespace std;
 
+using Clause = vector<int>;
+
 class SAT{
     private:
         int varsNum;
-        vector<vector<int>> clauses;
+        vector<Clause> clauses;
 
     public:
         vector<bool> vars;
 
         //GETERS
         int getVarsNum();
-        vector<vector<int>> getClauses();
+        vector<Clause> getClauses();
 
         //SETERS
         void setVarsNum(int varsNum);
-        void setClauses(vector<vector<int>> clauses);
+        void setClauses(vector<Clause> clauses);
 
         //METHODS
         bool checkVars();
