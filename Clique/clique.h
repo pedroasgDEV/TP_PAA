@@ -9,26 +9,27 @@ using namespace std;
 
 class Clique{
     private:
-        int vertices;
+        int numVertices;
         vector<vector<int>> arestas;
 
     public:
-        vector<bool> vars;
+        vector<int> maxClique;
+        vector<int> currClique;
 
         //GETERS
-        int getVertices();
+        int getNumVertices();
         vector<vector<int>> getArestas();
 
         //SETERS
-        void setVertices(int varsNum);
-        void setArestas(vector<Clause> clauses);
+        void setNumVertices(int numVertices);
+        void setArestas(vector<vector<int>> arestas);
 
         //METHODS
-        bool checkVars();
+        bool isClique(const vector<int> clique);
 
         //OPERATORS OVERLOAD
-        friend istream& operator>>(istream& in, SAT& c);
-        friend ostream& operator<<(ostream& out, SAT& c);
+        friend istream& operator>>(istream& in, Clique& c);
+        friend ostream& operator<<(ostream& out, Clique& c);
 };
 
 #endif
